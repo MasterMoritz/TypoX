@@ -4,3 +4,9 @@ export class UpdateAsciiMathEquation {
 
     constructor(public equation: string) {}
 }
+
+export class UpdateTexEquation {
+    static readonly type = 'UpdateTexEquation';
+
+    constructor(public equation: string) {}
+}
