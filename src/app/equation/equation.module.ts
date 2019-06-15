@@ -7,6 +7,8 @@ import { LatexTranslationComponent } from './components/latex-translation/latex-
 import { RenderComponent } from './components/render/render.component';
 import { MainComponent } from './components/main/main.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxsModule } from '@ngxs/store';
+import { EquationState } from './store/equation.state';
 
 @NgModule({
   declarations: [EditorComponent, LatexTranslationComponent, RenderComponent, MainComponent],
@@ -15,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EquationRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxsModule.forFeature([EquationState])
   ]
 })
 export class EquationModule { }

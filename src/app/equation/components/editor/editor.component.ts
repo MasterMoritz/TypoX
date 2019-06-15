@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Store } from '@ngxs/store';
+import { UpdateAsciiMathEquation } from '../../store/equation.actions';
 
 @Component({
   selector: 'app-editor',
@@ -15,7 +17,7 @@ export class EditorComponent implements OnInit, OnDestroy {
   
   private unsubscribe: Subject<void> = new Subject();
   
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private store: Store) {
   }
 
   ngOnInit() {
@@ -25,7 +27,7 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.form.controls['equation'].valueChanges.pipe(takeUntil(this.unsubscribe))
     .subscribe(  
       (value: string) => {  
-        console.log('value changed to: ', value);  
+        this.store.dispatch(new UpdateAsciiMathEquation(value));
       }
     );
 
