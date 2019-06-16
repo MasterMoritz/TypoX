@@ -11,7 +11,7 @@ Andreas Moritz (S1810629007)
 Carina Rogl (S1810629009)
 
 ## What is this project about?
-Equation Editor to convert wysiwyg equations into LaTeX usable code
+Equation Editor to convert wysiwyg/asciiMath equations into LaTeX usable code
 
 ## Development server
 
