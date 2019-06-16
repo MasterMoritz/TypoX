@@ -2,11 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
 import {Store} from '@ngxs/store';
-import { debug } from 'util';
-import { By, by } from 'protractor';
-import { AuthState } from '../authentication/store/auth.state';
-import { RouterTestingModule } from '@angular/router/testing';
-import { store } from '@angular/core/src/render3';
 import { of } from 'rxjs';
 
 
