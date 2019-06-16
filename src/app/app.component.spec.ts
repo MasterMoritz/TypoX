@@ -3,8 +3,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { NgModule} from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SymbolbarComponent } from './symbolbar/symbolbar.component';
-import { SymbolComponent } from './symbol/symbol.component';
 import { ToastComponent } from 'angular2-toaster';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './authentication/guards/auth.guard';
@@ -26,8 +24,6 @@ describe('AppComponent', () => {
         AppComponent,
         NavbarComponent,
         ToastComponent,
-        SymbolbarComponent,
-        SymbolComponent,
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/'}
