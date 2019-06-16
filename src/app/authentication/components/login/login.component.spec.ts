@@ -1,16 +1,18 @@
 import {FormBuilder} from '@angular/forms';
-import {AuthService} from '../../services/auth.service';
 
 import {LoginComponent} from './login.component';
-import {Router} from '@angular/router';
-import {Store} from '@ngxs/store';
+import { Observable } from 'rxjs';
 
-describe('LoginComponent', () => {
+fdescribe('LoginComponent', () => {
   let component: LoginComponent;
   let formbuilder: FormBuilder;
 
-  let store: Store;
-  let value: any;
+  let store;
+
+  const credentialsStub = {
+    email: 'a@b.c',
+    password: '123'
+  };
 
   beforeEach(() => {
     
@@ -20,21 +22,29 @@ describe('LoginComponent', () => {
       email: ['test@test.de'],
       password: ['123456']
     });
-    value = {
-      email: 'test@test.de',
-      password: '123456'
-    };
     component = new LoginComponent(formbuilder, store);
   });
 
-  it('has the login function', () => {
-    expect(component.tryLogin).toBeDefined();
+  it('dispatches the login action', () => {
+    store.dispatch.and.returnValue(new Observable<any>(subscriber => {
+      subscriber.next();
+      subscriber.complete();
+    }))
+    component.tryLogin(credentialsStub);
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
   });
 
+  it('uses the error message in case of failed login', () => {
 
+    const errorStub = {
+      message: "no such email found"
+    };
+    store.dispatch.and.returnValue(new Observable<any>(subscriber => {
+      subscriber.error(errorStub);
+    }));
 
-  afterEach(() => {
-    component = null;
+    component.tryLogin(credentialsStub);
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    expect(component.errorMessage).toEqual("no such email found");
   });
-
 });
