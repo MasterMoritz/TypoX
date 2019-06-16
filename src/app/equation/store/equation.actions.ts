@@ -5,6 +5,12 @@ export class UpdateAsciiMathEquation {
     constructor(public equation: string) {}
 }
 
+export class AddToAsciiMathEquation {
+    static readonly type = 'AddToAsciiMathEquation';
+
+    constructor(public equation: string) {}
+}
+
 export class UpdateTexEquation {
     static readonly type = 'UpdateTexEquation';
 

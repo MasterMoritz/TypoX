@@ -1,6 +1,6 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 
-import { UpdateAsciiMathEquation, UpdateTexEquation } from './equation.actions';
+import { UpdateAsciiMathEquation, UpdateTexEquation, AddToAsciiMathEquation } from './equation.actions';
 
 export interface EquationStateModel {
 
@@ -29,6 +29,13 @@ export class EquationState {
     @Action(UpdateTexEquation) updateTexEquation(context: StateContext<EquationStateModel>, action: UpdateTexEquation) {
         context.patchState({
             texEquation: action.equation,
+        });
+    }
+
+    @Action(AddToAsciiMathEquation) addToAsciiMathEquation(context: StateContext<EquationStateModel>, action: AddToAsciiMathEquation) {
+        const currentEquation: string = context.getState().asciiMathEquation;
+        context.patchState({
+            asciiMathEquation: currentEquation.concat(action.equation),
         });
     }
 }
