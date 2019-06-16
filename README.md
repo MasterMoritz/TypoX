@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
 ## Deployment Site
-
+https://typox.netlify.com/
 
 ## Who is working on this Project?
 Andreas Moritz (S1810629007)
