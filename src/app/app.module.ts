@@ -20,8 +20,8 @@ import {ToasterModule} from 'angular2-toaster';
 import { HeaderComponent } from './navigation/header/header.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { SymbolbarComponent } from './symbolbar/symbolbar.component';
-import { IndexComponent } from './index/index.component';
 import { SymbolComponent } from './symbol/symbol.component';
+import { EquationModule } from './equation/equation.module';
 
 export const firebase = {
   apiKey: "AIzaSyD5kytDwmZmNqQosvsDgsWs_46l4sGYY5E",
@@ -39,7 +39,6 @@ export const firebase = {
     NavbarComponent,
     HeaderComponent,
     SymbolbarComponent,
-    IndexComponent,
     SymbolComponent,
   ],
   schemas: [
@@ -57,6 +56,7 @@ export const firebase = {
 
     BrowserAnimationsModule,
     AuthenticationModule,
+    EquationModule,
 
     NgxsModule.forRoot([
     ], {developmentMode: !environment.production}),
