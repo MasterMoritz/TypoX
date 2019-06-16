@@ -18,8 +18,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import {ToasterModule} from 'angular2-toaster';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { SymbolbarComponent } from './symbolbar/symbolbar.component';
-import { SymbolComponent } from './symbol/symbol.component';
 import { EquationModule } from './equation/equation.module';
 
 export const firebase = {
@@ -36,8 +34,6 @@ export const firebase = {
   declarations: [
     AppComponent,
     NavbarComponent,
-    SymbolbarComponent,
-    SymbolComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

@@ -11,9 +11,11 @@ import { NgxsModule } from '@ngxs/store';
 import { EquationState } from './store/equation.state';
 import {MathJaxModule} from 'ngx-mathjax';
 import { TexPipe } from './pipes/tex.pipe';
+import { SymbolbarComponent } from './components/symbolbar/symbolbar.component';
+import { SymbolComponent } from './components/symbol/symbol.component';
 
 @NgModule({
-  declarations: [EditorComponent, LatexTranslationComponent, RenderComponent, MainComponent, TexPipe],
+  declarations: [EditorComponent, LatexTranslationComponent, RenderComponent, MainComponent, TexPipe, SymbolbarComponent, SymbolComponent],
   imports: [
     CommonModule,
     EquationRoutingModule,
