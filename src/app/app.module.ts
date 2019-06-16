@@ -17,7 +17,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import {ToasterModule} from 'angular2-toaster';
-import { HeaderComponent } from './navigation/header/header.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { SymbolbarComponent } from './symbolbar/symbolbar.component';
 import { SymbolComponent } from './symbol/symbol.component';
@@ -37,7 +36,6 @@ export const firebase = {
   declarations: [
     AppComponent,
     NavbarComponent,
-    HeaderComponent,
     SymbolbarComponent,
     SymbolComponent,
   ],
