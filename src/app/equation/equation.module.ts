@@ -10,9 +10,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxsModule } from '@ngxs/store';
 import { EquationState } from './store/equation.state';
 import {MathJaxModule} from 'ngx-mathjax';
+import { TexPipe } from './pipes/tex.pipe';
 
 @NgModule({
-  declarations: [EditorComponent, LatexTranslationComponent, RenderComponent, MainComponent],
+  declarations: [EditorComponent, LatexTranslationComponent, RenderComponent, MainComponent, TexPipe],
   imports: [
     CommonModule,
     EquationRoutingModule,
