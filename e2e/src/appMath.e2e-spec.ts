@@ -16,8 +16,18 @@ describe('workspace-project App', () => {
   });
 
   it('Should locate the nav bar', () => {
-    expect(page.getNavBar()).toBeDefined();
-});
+    expect(page.getNavBar().getText()).toContain('TypoX')
+  });
+
+  it('Should locate the sum symbol', () => {
+    expect(page.getSymbolSum().getText()).toContain('∑');
+  });
+
+  it('Should insert symbol when you click on', () => {
+    page.getSymbolSum().click();
+    expect(page.getTranslationField().getText()).toContain('\\sum');
+    page.getEditorField().clear();
+  });
 
   it('should have equation fields', () =>{
 

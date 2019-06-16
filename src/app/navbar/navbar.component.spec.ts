@@ -18,10 +18,11 @@ const matchObj = [
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
-  let storeService: any;
+  let storeService: Store;
 
   beforeEach(async(() => {
     storeService = jasmine.createSpyObj('Store', ['dispatch']);
+    component = new NavbarComponent(storeService);
 
     TestBed.configureTestingModule({
       declarations: [ NavbarComponent ],
