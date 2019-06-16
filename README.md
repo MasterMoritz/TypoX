@@ -14,7 +14,7 @@ Carina Rogl (S1810629009)
 Equation Editor to convert wysiwyg/asciiMath equations into LaTeX usable code
 
 ## what didnt make it into the deadline:
-saving/loading of equations for the user (to have a use for the AuthGuard)
+saving/loading of equations for the user (to have a use for the AuthGuard). Currently the only effective Guard usage is to guard the login and register pages against already logged in users.
 
 need more unit tests for the equation module.
 
