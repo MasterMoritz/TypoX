@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { RegisterAndLogin } from '../../store/auth.actions';
@@ -18,7 +17,7 @@ export class RegisterComponent {
   successMessage: string = '';
   loading: boolean;
 
-  constructor(private store: Store, private formBuilder: FormBuilder, private router: Router) { 
+  constructor(private store: Store, private formBuilder: FormBuilder) { 
     this.initForm();
     this.loading = false;
   }
@@ -35,7 +34,6 @@ export class RegisterComponent {
 
     this.store.dispatch(new RegisterAndLogin(value.email, value.password)).pipe(take(1)).subscribe(
       success => {
-        this.router.navigate(['']);
         this.loading = false;
       },
       error => {

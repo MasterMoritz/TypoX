@@ -1,25 +1,50 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegisterComponent } from './register.component';
+import { FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
-  let fixture: ComponentFixture<RegisterComponent>;
+  let formbuilder: FormBuilder;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ RegisterComponent ]
-    })
-    .compileComponents();
-  }));
+  let store;
+
+  const credentialsStub = {
+    email: 'a@b.c',
+    password: '123'
+  };
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegisterComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    
+    store = jasmine.createSpyObj('Store', ['dispatch']);
+    formbuilder = jasmine.createSpyObj('FormBuilder', ['group']);
+    formbuilder.group({
+      email: ['test@test.de'],
+      password: ['123456']
+    });
+    component = new RegisterComponent(store, formbuilder);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('dispatches the login action', () => {
+    store.dispatch.and.returnValue(new Observable<any>(subscriber => {
+      subscriber.next();
+      subscriber.complete();
+    }))
+    component.tryRegister(credentialsStub);
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+  });
+
+  it('uses the error message in case of failed register', () => {
+
+    const errorStub = {
+      message: "bad mail format"
+    };
+    store.dispatch.and.returnValue(new Observable<any>(subscriber => {
+      subscriber.error(errorStub);
+    }));
+
+    component.tryRegister(credentialsStub);
+    expect(component.errorMessage).toEqual(errorStub.message);
   });
 });
