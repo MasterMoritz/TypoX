@@ -1,8 +1,13 @@
 import { browser, by, element, ElementFinder } from 'protractor';
 
 export class AppPage {
-  navigateTo() {
+  navigateToLogin() {
+    return browser.get('/login') as Promise<any>;
+
+  }
+  navigateToIndex() {
     return browser.get(browser.baseUrl) as Promise<any>;
+
   }
 
   getTitleText() {
@@ -11,7 +16,7 @@ export class AppPage {
 
   getNavBar(): ElementFinder {
     return element(by.tagName('nav'));
-}
+  }
 
   getLoginButton(): ElementFinder {
     return element(by.id('pLoginBtn'));
@@ -27,6 +32,18 @@ export class AppPage {
 
   getToastContainer(): ElementFinder {
     return element(by.id('toast-container'));
+  }
+
+  getEditorField(): ElementFinder {
+    return element(by.id('Editor'));
+  }
+
+  getTranslationField(): ElementFinder {
+    return element(by.id('translation'));
+  }
+
+  getDisplayField(): ElementFinder {
+    return element(by.id('displayField'));
   }
 
 }

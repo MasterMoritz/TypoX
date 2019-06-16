@@ -22,20 +22,21 @@ export class AuthService implements OnDestroy {
         .pipe(ofActionSuccessful(Login))
         .subscribe(() => {
           this.toaster.pop('success', 'You are now logged in!', '');
+          this.router.navigate(['']);
         });
 
     this.toasterSub.add(this.actions$
       .pipe(ofActionSuccessful(Logout))
       .subscribe(() => {
         this.toaster.pop('success', 'You are now logged out!', '');
-        this.router.navigate(['/login']);
+        this.router.navigate(['']);
       }));
 
       this.toasterSub.add(this.actions$
         .pipe(ofActionSuccessful(RegisterAndLogin))
         .subscribe(() => {
           this.toaster.pop('success', 'Account created', 'You are now logged in!');
-          this.router.navigate(['/login']);
+          this.router.navigate(['']);
         }));
   }
 

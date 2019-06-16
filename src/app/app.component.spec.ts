@@ -7,18 +7,15 @@ import { SymbolbarComponent } from './symbolbar/symbolbar.component';
 import { SymbolComponent } from './symbol/symbol.component';
 import { ToastComponent } from 'angular2-toaster';
 import { Routes, RouterModule } from '@angular/router';
-import { HeaderComponent } from './navigation/header/header.component';
 import { AuthGuard } from './authentication/guards/auth.guard';
-import { IndexComponent } from './index/index.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { MainComponent } from './equation/components/main/main.component';
 
 
 describe('AppComponent', () => {
 
   const routes: Routes = [
-    {path: '', component: HeaderComponent, canActivate: [AuthGuard]},
-    {path: 'test', component: HeaderComponent},
-    {path: 'main', component: IndexComponent}
+    {path: '', component: MainComponent, canActivate: [AuthGuard]},
   ];
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -31,8 +28,6 @@ describe('AppComponent', () => {
         ToastComponent,
         SymbolbarComponent,
         SymbolComponent,
-        HeaderComponent,
-        IndexComponent
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/'}

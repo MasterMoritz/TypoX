@@ -9,14 +9,21 @@ import { MainComponent } from './components/main/main.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxsModule } from '@ngxs/store';
 import { EquationState } from './store/equation.state';
+import {MathJaxModule} from 'ngx-mathjax';
+import { TexPipe } from './pipes/tex.pipe';
 
 @NgModule({
-  declarations: [EditorComponent, LatexTranslationComponent, RenderComponent, MainComponent],
+  declarations: [EditorComponent, LatexTranslationComponent, RenderComponent, MainComponent, TexPipe],
   imports: [
     CommonModule,
     EquationRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MathJaxModule.config({
+      version: '2.7.5',
+      config: 'TeX-AMS_HTML',
+      hostname: 'cdnjs.cloudflare.com'
+    }),
     NgxsModule.forFeature([EquationState])
   ]
 })

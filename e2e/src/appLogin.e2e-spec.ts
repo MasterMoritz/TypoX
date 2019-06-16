@@ -11,7 +11,7 @@ describe('workspace-project App', () => {
   });
 
   it('should display login page', () => {
-    page.navigateTo();
+    page.navigateToLogin();
     expect(page.getTitleText()).toEqual('Login');
   });
 

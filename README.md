@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
 ## Deployment Site
-
+https://typox.netlify.com/
 
 ## Who is working on this Project?
 Andreas Moritz (S1810629007)
@@ -11,7 +11,7 @@ Andreas Moritz (S1810629007)
 Carina Rogl (S1810629009)
 
 ## What is this project about?
-Equation Editor to convert wysiwyg equations into LaTeX usable code
+Equation Editor to convert wysiwyg/asciiMath equations into LaTeX usable code
 
 ## Development server
 

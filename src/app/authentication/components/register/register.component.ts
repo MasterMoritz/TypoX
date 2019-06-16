@@ -16,9 +16,11 @@ export class RegisterComponent {
   form: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
+  loading: boolean;
 
   constructor(private store: Store, private formBuilder: FormBuilder, private router: Router) { 
     this.initForm();
+    this.loading = false;
   }
 
   initForm() {
@@ -29,12 +31,17 @@ export class RegisterComponent {
   }
 
   tryRegister(value){
+    this.loading = true;
+
     this.store.dispatch(new RegisterAndLogin(value.email, value.password)).pipe(take(1)).subscribe(
       success => {
         this.router.navigate(['']);
+        this.loading = false;
       },
       error => {
         this.errorMessage = error.message;
-      });
+        this.loading = false;
+      },
+      () => this.loading = false);
   }
 }

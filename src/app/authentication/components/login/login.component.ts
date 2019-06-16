@@ -17,9 +17,11 @@ export class LoginComponent {
   form: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
+  loading: boolean;
 
   constructor(public authService: AuthService, private formBuilder: FormBuilder, private router: Router, private store: Store) {
     this.initForm();
+    this.loading = false;
   }
 
   initForm() {
@@ -30,12 +32,17 @@ export class LoginComponent {
   }
 
   tryLogin(value) {
+    this.loading = true;
     this.store.dispatch(new Login(value.email, value.password)).pipe(take(1)).subscribe(
       success => {
-        this.router.navigate(['main']);
+        this.loading = false;
       },
       error => {
         this.errorMessage = error.message;
+        this.loading = false;
+      },
+      () => {
+        this.loading = false;
       });
   }
 
