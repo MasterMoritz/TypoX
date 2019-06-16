@@ -15,6 +15,7 @@ Equation Editor to convert wysiwyg/asciiMath equations into LaTeX usable code
 
 ## what didnt make it into the deadline:
 unit testing the equation module
+
 saving/loading of equations for the user (to have a use for the AuthGuard)
 
 ## Development server
