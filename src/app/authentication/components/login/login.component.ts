@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { Login } from '../../store/auth.actions';
@@ -19,7 +17,7 @@ export class LoginComponent {
   successMessage: string = '';
   loading: boolean;
 
-  constructor(public authService: AuthService, private formBuilder: FormBuilder, private router: Router, private store: Store) {
+  constructor(private formBuilder: FormBuilder, private store: Store) {
     this.initForm();
     this.loading = false;
   }

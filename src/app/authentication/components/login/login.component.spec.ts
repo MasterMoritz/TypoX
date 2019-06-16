@@ -8,14 +8,12 @@ import {Store} from '@ngxs/store';
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let formbuilder: FormBuilder;
-  let router: Router;
+
   let store: Store;
-  let service: AuthService;
   let value: any;
 
   beforeEach(() => {
-    service = jasmine.createSpyObj('authService', ['auth']);
-    router = jasmine.createSpyObj('router', ['navigator']);
+    
     store = jasmine.createSpyObj('Store', ['dispatch']);
     formbuilder = jasmine.createSpyObj('FormBuilder', ['group']);
     formbuilder.group({
@@ -26,7 +24,7 @@ describe('LoginComponent', () => {
       email: 'test@test.de',
       password: '123456'
     };
-    component = new LoginComponent(service, formbuilder, router, store);
+    component = new LoginComponent(formbuilder, store);
   });
 
   it('has the login function', () => {
@@ -36,7 +34,6 @@ describe('LoginComponent', () => {
 
 
   afterEach(() => {
-    service = null;
     component = null;
   });
 
