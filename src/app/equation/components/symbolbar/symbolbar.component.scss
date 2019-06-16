@@ -56,7 +56,7 @@ $colHighlight: #e6b2c6;
       &:hover, &:focus {
         color: $colHighlight; }}
     > .active {
-      > a, > a:hover, > a:focus, {
+      > a, > a:hover, > a:focus {
         color: $colHighlight;
         background-color: $bgHighlight; }}}
 }
