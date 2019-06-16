@@ -29,7 +29,7 @@ describe('workspace-project App', () => {
   it('should translate equation', () =>{
 
     page.getEditorField().sendKeys('sum i^3=((n(n+1))/2)^2');
-    expect(page.getTranslationField().getText()).toContain('left( n + 1');
+    expect(page.getTranslationField().getText()).toContain('sum i 3 = \left( \frac{n \left( n + 1 \right )}{2} \right ) 2');
     expect(page.getDisplayField().getText()).toBeDefined();
   });
 
