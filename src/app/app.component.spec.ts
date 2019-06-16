@@ -1,7 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { NgModule} from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ToastComponent } from 'angular2-toaster';
 import { Routes, RouterModule } from '@angular/router';
