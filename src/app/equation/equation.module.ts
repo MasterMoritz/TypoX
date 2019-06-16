@@ -9,6 +9,7 @@ import { MainComponent } from './components/main/main.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxsModule } from '@ngxs/store';
 import { EquationState } from './store/equation.state';
+import {MathJaxModule} from 'ngx-mathjax';
 
 @NgModule({
   declarations: [EditorComponent, LatexTranslationComponent, RenderComponent, MainComponent],
@@ -17,6 +18,11 @@ import { EquationState } from './store/equation.state';
     EquationRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MathJaxModule.config({
+      version: '2.7.5',
+      config: 'TeX-AMS_HTML',
+      hostname: 'cdnjs.cloudflare.com'
+    }),
     NgxsModule.forFeature([EquationState])
   ]
 })
