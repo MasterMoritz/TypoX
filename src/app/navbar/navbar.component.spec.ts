@@ -4,9 +4,10 @@ import { NavbarComponent } from './navbar.component';
 import {Store} from '@ngxs/store';
 import { debug } from 'util';
 import { By, by } from 'protractor';
-import { AuthService } from '../authentication/services/auth.service';
+import { AuthState } from '../authentication/store/auth.state';
 import { RouterTestingModule } from '@angular/router/testing';
 import { store } from '@angular/core/src/render3';
+import { of } from 'rxjs';
 
 
 const matchObj = [
@@ -34,6 +35,9 @@ describe('NavbarComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
+
+    Object.defineProperty(component, 'loggedIn$', {writable: true});
+    component.loggedIn$ = of(true);
     fixture.detectChanges();
   });
 
