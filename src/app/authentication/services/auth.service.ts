@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { Subscription, Observable, of, from } from 'rxjs';
-import { Store, Actions, ofActionSuccessful } from '@ngxs/store';
+import { Actions, ofActionSuccessful } from '@ngxs/store';
 import { Login, Logout, RegisterAndLogin } from '../store/auth.actions';
 import { ToasterService } from 'angular2-toaster';
 
@@ -15,7 +15,7 @@ export class AuthService implements OnDestroy {
 
   private toasterSub: Subscription;
 
-  constructor(public afAuth: AngularFireAuth, private router: Router, private store: Store, private toaster: ToasterService, private actions$: Actions) {
+  constructor(public afAuth: AngularFireAuth, private router: Router, private toaster: ToasterService, private actions$: Actions) {
 
     this.toasterSub =
       this.actions$
