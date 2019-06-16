@@ -10,7 +10,7 @@ class MockRouteState {
 
 }
 
-fdescribe('AuthGuard', () => {
+describe('AuthGuard', () => {
   describe('canActivate', () => {
     let authGuard: AuthGuard;
     let router;
