@@ -46,4 +46,12 @@ export class AppPage {
     return element(by.id('displayField'));
   }
 
+  getSymbolSum(): ElementFinder {
+    return element(by.id('iconSum'));
+  }
+
+  getSymbolBar(): ElementFinder {
+    return element(by.id('symbolNavBar'));
+  }
+
 }

@@ -19,7 +19,10 @@ describe('MainComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should render title Equation Editor in a h1 tag', () => {
+    fixture = TestBed.createComponent(MainComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Equation Editor');
   });
 });

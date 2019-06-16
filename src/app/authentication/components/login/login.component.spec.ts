@@ -29,14 +29,15 @@ describe('LoginComponent', () => {
     component = new LoginComponent(service, formbuilder, router, store);
   });
 
-  afterEach(() => {
-    service = null;
-    component = null;
+  it('has the login function', () => {
+    expect(component.tryLogin).toBeDefined();
   });
 
 
-  it('has the login function', () => {
-    expect(component.tryLogin).toBeDefined();
+
+  afterEach(() => {
+    service = null;
+    component = null;
   });
 
 });
